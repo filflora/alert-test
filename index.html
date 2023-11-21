@@ -13,13 +13,15 @@
       function request() {
         Notification.requestPermission().then((permission) => {
           if (permission === "granted") {
-            const notification = new Notification("hello", {
-              body: "click me",
-            });
-
-            notification.addEventListener("click", () => {
-              window.focus();
-            });
+            setTimeout(() => {
+              const notification = new Notification("hello", {
+                body: "click me",
+              });
+  
+              notification.addEventListener("click", () => {
+                window.focus();
+              });
+            }, 3000);
           }
         });
       };
