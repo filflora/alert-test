@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Test</title>
+  </head>
+
+  <body>
+    <script>
+      // setTimeout(() => {
+      //     alert("Test");
+      //     window.focus();
+      // }, 10_000);
+
+      function request() {
+        Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            const notification = new Notification("hello", {
+              body: "click me",
+            });
+
+            notification.addEventListener("click", () => {
+              window.focus();
+            });
+          }
+        });
+      };
+    </script>
+
+    <button onclick="request()">Request notification</button>
+  </body>
+</html>
